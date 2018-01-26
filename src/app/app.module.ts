@@ -21,15 +21,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthProvider } from '../providers/auth/auth.provider';
 import { TrackingPage } from '../pages/tracking/tracking';
 import { Geolocation } from '@ionic-native/geolocation';
-
-export const firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
-  databaseURL: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: ""
-};
+import { firebaseConfig } from './firebase.config';
 
 @NgModule({
   declarations: [
