@@ -1,0 +1,32 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar color="dark">
+      <div class="menu-info" fxLayout="column" fxLayoutAlign="start center">
+        <img class="profile-image" [src]="settings?.photoURL">
+        <h5 class="fg-color-light">{{settings?.displayName}}</h5>
+        <h6 style="margin-top: 0px;" class="fg-color-primary capitalize">{{settings?.group}}</h6>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list class="menu-list">
+      <button color="dark" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon class="faded" [name]="p.icon" item-left></ion-icon>
+        {{p.title}}
+      </button>
+      <!--<button *ngIf="!settings?.displayName" color="dark" menuClose ion-item (click)="login()">-->
+        <!--<ion-icon class="faded" name="contact" item-left></ion-icon>-->
+        <!--Logg på-->
+      <!--</button>-->
+      <!--<button *ngIf="settings?.displayName"  color="dark" menuClose ion-item (click)="logout()">-->
+        <!--<ion-icon class="faded" name="contact" item-left></ion-icon>-->
+        <!--Logg av-->
+      <!--</button>-->
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Bekreftelse</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row class="row">
+      <ion-col class="col">
+        <h2>Din bestilling</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row">
+      <ion-col class="col">
+        Navn
+      </ion-col>
+      <ion-col class="col">
+        <span>{{order.user}}</span>
+      </ion-col>
+    </ion-row>
+    <div class="row">
+      <ion-col class="col">
+        Gruppe
+      </ion-col>
+      <ion-col class="col">
+        <span>{{order.group}}</span>
+      </ion-col>
+    </div>
+    <ion-row class="row">
+      <ion-col class="col">
+        Pizza
+      </ion-col>
+      <ion-col class="col">
+        <span>#{{order.pizzaNr}} {{order.pizzaName}}</span>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row">
+      <ion-col class="col">
+        Brus
+      </ion-col>
+      <ion-col class="col">
+        <span>{{order.soda}}</span>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row">
+      <ion-col class="col">
+        Total
+      </ion-col>
+      <ion-col class="col">
+        <span>kr {{order.price}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="row">
+    <div class="col">
+      <button (click)="saveOrder()" [disabled]="orderExists" ion-button block>
+        SEND
+      </button>
+      <div *ngIf="orderExists">
+        <h6>Du har allerede lagt inn bestilling i dag</h6>
+      </div>
+    </div>
+  </div>
+</ion-content>

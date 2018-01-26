@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Velg din Brus</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let soda of sodaList | async" (click)="selectSoda(soda)">
+      <ion-avatar item-start>
+        <img src="assets/imgs/soda/{{soda.thumbnail}}">
+      </ion-avatar>
+      <h2>{{soda.name}}</h2>
+    </button>
+  </ion-list>
+</ion-content>

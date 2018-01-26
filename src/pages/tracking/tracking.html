@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sporing</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div>
+    <button (click)="startTracking()" ion-button block>START SPORING</button>
+    <button ion-button block color="danger">STOP SPORING</button>
+
+    <div>
+      <div>Sporing live: </div>
+      <div>Fart: </div>
+    </div>
+  </div>
+  <div #map id="map_canvas"></div>
+</ion-content>

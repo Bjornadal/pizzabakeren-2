@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dagens bestillinger</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="settings?.group && settings?.displayName">
+    <div *ngIf="(orders | async)?.length > 0">
+      <div class="row summary">
+        <div class="col">
+          <h3>Pizza</h3>
+
+          <div class="row" *ngFor="let pizza of summary.pizza">
+            <div class="col">
+              #{{ pizza.nr }}
+            </div>
+            <div class="col">
+              {{pizza.count}}
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <h3>Brus</h3>
+
+          <div class="row" *ngFor="let soda of summary.soda">
+            <div class="col">
+              {{ soda.name }}
+            </div>
+            <div class="col">
+              {{soda.count}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ion-list>
+        <ion-item class="" *ngFor="let order of orders | async" type="item-text-wrap">
+          <h2>{{order.user}}</h2>
+          <p>#{{order.pizzaNr}} {{order.pizzaName}} / {{order.soda}}</p>
+        </ion-item>
+      </ion-list>
+
+    </div>
+    <div *ngIf="(orders | async)?.length == 0">
+      <div class="row">
+        <div class="col">
+          <h5>Det er ingen bestillinger i dag...</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!settings?.group || !settings?.displayName">
+    <div class="row">
+      <div class="col">
+        <h4>Du må legge inn ditt navn og velge gruppe for å se dagens bestillinger...</h4>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

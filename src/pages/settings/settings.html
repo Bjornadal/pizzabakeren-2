@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary" stacked>Fullt Navn</ion-label>
+      <ion-input placeholder="Bob Harry" [value]="settings?.displayName" (ionChange)="personNameChanged($event)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Gruppe</ion-label>
+      <ion-input placeholder="Pizzagjengen" [value]="settings?.group" (ionChange)="groupChanged($event)"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>

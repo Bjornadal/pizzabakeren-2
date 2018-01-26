@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Velg din Pizza</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let pizza of pizzaList | async" (click)="selectPizza(pizza)">
+      <h2>#{{pizza.nr}} {{pizza.name}} </h2>
+      <h3 padding-left style="float: right;"> {{pizza.price}},- </h3>
+      <p class="nowrap">{{pizza.description}}</p>
+    </button>
+  </ion-list>
+</ion-content>
