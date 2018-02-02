@@ -8,15 +8,19 @@
 </ion-header>
 
 
-<ion-content padding>
-  <div>
-    <button (click)="startTracking()" ion-button block>START SPORING</button>
-    <button ion-button block color="danger">STOP SPORING</button>
-
-    <div>
-      <div>Sporing live: </div>
-      <div>Fart: </div>
+<ion-content>
+  <div padding class="top-container">
+    <div *ngIf="liveTrack | async; let liveTrack; else loading" >
+      <button *ngIf="!liveTrack.live" (click)="startTracking()" ion-button block>START SPORING</button>
+      <button *ngIf="liveTrack.live" [disabled]="liveTrack.user !== settings.displayName" (click)="stopTracking()" ion-button block color="danger">STOP SPORING</button>
+      <div *ngIf="liveTrack.live">
+        <div>Pizza hentes av: {{ liveTrack.user }}</div>
+      </div>
     </div>
+    <ng-template #loading>
+      Laster sporing...
+    </ng-template>
   </div>
+
   <div #map id="map_canvas"></div>
 </ion-content>

@@ -22,6 +22,7 @@ import { AuthProvider } from '../providers/auth/auth.provider';
 import { TrackingPage } from '../pages/tracking/tracking';
 import { Geolocation } from '@ionic-native/geolocation';
 import { firebaseConfig } from './firebase.config';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { firebaseConfig } from './firebase.config';
     SettingsProvider,
     AuthProvider,
     Geolocation,
+    GoogleMaps
   ]
 })
 export class AppModule {}
