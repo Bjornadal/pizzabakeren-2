@@ -11,7 +11,7 @@
 <ion-content padding>
   <ion-list>
     <button ion-item *ngFor="let pizza of pizzaList | async" (click)="selectPizza(pizza)">
-      <h2>#{{pizza.nr}} {{pizza.name}} </h2>
+      <div class="list-item-header">#{{pizza.nr}} {{pizza.name}}</div>
       <h3 padding-left style="float: right;"> {{pizza.price}},- </h3>
       <p class="nowrap">{{pizza.description}}</p>
     </button>

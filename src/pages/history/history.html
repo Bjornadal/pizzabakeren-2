@@ -39,8 +39,8 @@
       </div>
 
       <ion-list>
-        <ion-item class="" *ngFor="let order of orders | async" type="item-text-wrap">
-          <h2>{{order.user}}</h2>
+        <ion-item *ngFor="let order of orders | async">
+          <div class="list-item-header">{{order.user}}</div>
           <p>#{{order.pizzaNr}} {{order.pizzaName}} / {{order.soda}}</p>
         </ion-item>
       </ion-list>
