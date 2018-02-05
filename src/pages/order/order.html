@@ -3,24 +3,19 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Ny bestilling</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding fxLayout="column">
   <img width="100%" src="assets/imgs/banner.png" />
-  <div class="padding">
+  <div>
     <p>
       Legg inn din Pizzabaker bestilling ved å skrive inn ditt navn og den gruppen du tilhører i "Innstillinger".
       Din pizza sjef vil deretter motta din bestilling og viderefører denne til din lokale Pizzabaker.
     </p>
   </div>
-
-  <div class="row">
-    <div class="col col-center">
-      <button ion-button block (click)="startOrder()" [disabled]="!settings?.displayName">
-        BESTILL
-      </button>
-    </div>
-  </div>
+  <button ion-button block (click)="startOrder()" [disabled]="!settings?.displayName">
+    BESTILL
+  </button>
 </ion-content>

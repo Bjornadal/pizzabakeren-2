@@ -7,13 +7,16 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
   <ion-list>
     <button ion-item *ngFor="let pizza of pizzaList | async" (click)="selectPizza(pizza)">
-      <div class="list-item-header">#{{pizza.nr}} {{pizza.name}}</div>
-      <h3 padding-left style="float: right;"> {{pizza.price}},- </h3>
-      <p class="nowrap">{{pizza.description}}</p>
+      <div fxLayout="column" fxLayoutGap="4px">
+        <div fxLayout="row">
+          <div class="list-item-header">#{{pizza.nr}} {{pizza.name}}</div>
+          <div fxFlex fxLayoutAlign="end start">{{pizza.price}},-</div>
+        </div>
+        <p class="nowrap description">{{pizza.description}}</p>
+      </div>
     </button>
   </ion-list>
 </ion-content>
